@@ -1,6 +1,6 @@
-using Restaurants.Controllers;
 using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeders;
+using Restaurants.Application.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddScoped<IWeatherForcastService, WeatherForcastService>();
+
 
 builder.Services.AddInfrastructure(builder.Configuration);
-
+builder.Services.AddApplication();
 
 
 
