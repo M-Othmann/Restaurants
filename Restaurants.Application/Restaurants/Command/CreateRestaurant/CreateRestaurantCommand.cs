@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
 
-namespace Restaurants.Application.Restaurants.Dtos;
+namespace Restaurants.Application.Restaurants.Command.CreateRestaurant;
 
-public class CreateRestaurantDto
+public class CreateRestaurantCommand : IRequest<int>
 {
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
     public string Category { get; set; } = default!;
     public bool HasDelivery { get; set; }
     public string? ContactEmail { get; set; }
-    [Phone(ErrorMessage = "Please provide a valid phone number")]
     public string? ContactNumber { get; set; }
     public string? City { get; set; }
     public string? Street { get; set; }

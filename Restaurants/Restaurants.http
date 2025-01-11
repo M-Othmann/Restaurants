@@ -1,9 +1,6 @@
 @Restaurants_HostAddress = https://localhost:7142
 
-GET {{Restaurants_HostAddress}}/api/weatherforecast 
-Accept: application/json
 
-###
 
 
 GET {{Restaurants_HostAddress}}/api/restaurants
@@ -23,18 +20,18 @@ POST {{Restaurants_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Spicy Delights",
-  "Description": "Culinary experience like no other",
-  "Category": "Fine Dining",
+  "Name": "Tasty Tests",
+  "Description": "Cozy restaurant",
+  "Category": "Indian",
   "HasDelivery": true,
-  "ContactEmail": "info@delights.com",
-  "ContactNumber": "555-123-4567",
-  "City":"Metropolis",
-  "Street":"456 Gourmet Avenue",
-  "PostalCode" : "54321"
+  "ContactEmail": "info@tests.com",
+  "ContactNumber": "555-1234",
+  "City":"New york",
+  "Street":"786 Main Avenue",
+  "PostalCode" : "10-101"
 }
 
 ###
 
 
-GET https://localhost:7142/api/restaurants/3
+GET https://localhost:7142/api/restaurants/4
