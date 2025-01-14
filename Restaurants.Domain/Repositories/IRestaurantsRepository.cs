@@ -9,4 +9,10 @@ public interface IRestaurantsRepository
     Task<Restaurant?> GetRestaurant(int id);
 
     Task<int> Create(Restaurant entity);
+
+    Task Delete(Restaurant entity);
+
+
+
+    Task SaveChanges();
 }

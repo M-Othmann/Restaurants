@@ -20,7 +20,7 @@ POST {{Restaurants_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Tasty Tests",
+  "Name": "Test Tests",
   "Description": "Cozy restaurant",
   "Category": "Indian",
   "HasDelivery": true,
@@ -34,4 +34,18 @@ Content-Type: application/json
 ###
 
 
-GET https://localhost:7142/api/restaurants/4
+@id=5
+DELETE {{Restaurants_HostAddress}}/api/restaurants/{{id}}
+
+###
+
+PATCH {{Restaurants_HostAddress}}/api/restaurants/4
+Content-Type: application/json
+
+{
+  "Name": "Sample Patch",
+  "Description": "Sample restaurant",
+  "HasDelivery": true
+}
+
+###
