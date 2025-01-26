@@ -9,7 +9,7 @@ GET {{Restaurants_HostAddress}}/api/restaurants
 
 
 
-@id=1
+@id=3
 GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
 
 ###
@@ -47,5 +47,9 @@ Content-Type: application/json
   "Description": "Sample restaurant",
   "HasDelivery": true
 }
+
+###
+@id=145
+GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
 
 ###
