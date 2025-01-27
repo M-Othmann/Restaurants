@@ -25,6 +25,7 @@ builder.Host.UseSerilog((context, configuration) =>
 );
 
 builder.Services.AddScoped<ErrorHandlingMiddle>();
+builder.Services.AddScoped<RequestLogInformation>();
 
 var app = builder.Build();
 
@@ -35,6 +36,7 @@ var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 
 await seeder.Seed();
 app.UseMiddleware<ErrorHandlingMiddle>();
+app.UseMiddleware<RequestLogInformation>();
 
 app.UseSerilogRequestLogging();
 
