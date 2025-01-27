@@ -9,7 +9,7 @@ GET {{Restaurants_HostAddress}}/api/restaurants
 
 
 
-@id=3
+@id=200
 GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
 
 ###

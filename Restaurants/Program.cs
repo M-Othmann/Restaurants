@@ -3,6 +3,7 @@ using Restaurants.Infrastructure.Seeders;
 using Restaurants.Application.Extensions;
 using Serilog;
 using Serilog.Events;
+using Restaurants.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -22,6 +24,7 @@ builder.Host.UseSerilog((context, configuration) =>
 
 );
 
+builder.Services.AddScoped<ErrorHandlingMiddle>();
 
 var app = builder.Build();
 
@@ -31,8 +34,16 @@ var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 
 await seeder.Seed();
+app.UseMiddleware<ErrorHandlingMiddle>();
 
 app.UseSerilogRequestLogging();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwaggerUI();
+    app.UseSwagger();
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

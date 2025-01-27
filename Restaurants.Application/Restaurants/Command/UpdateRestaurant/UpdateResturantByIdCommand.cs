@@ -2,7 +2,7 @@
 
 namespace Restaurants.Application.Restaurants.Command.UpdateRestaurant;
 
-public class UpdateResturantByIdCommand : IRequest<bool>
+public class UpdateResturantByIdCommand : IRequest
 {
     public int Id { get; set; }
 
