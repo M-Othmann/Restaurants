@@ -7,4 +7,5 @@ public interface IDishRepository
     Task<int> Create(Dish entity);
     Task Delete(Dish entity);
 
+    Task DeleteAll(IEnumerable<Dish> entities);
 }

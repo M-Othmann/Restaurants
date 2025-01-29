@@ -49,7 +49,7 @@ Content-Type: application/json
 }
 
 ###
-@id=1
+@id=3
 GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
 
 ###
@@ -78,5 +78,9 @@ GET {{Restaurants_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
 ###
 
 DELETE {{Restaurants_HostAddress}}/api/restaurant/1/dishes/5
+
+###
+
+DELETE {{Restaurants_HostAddress}}/api/restaurant/3/dishes
 
 ###
