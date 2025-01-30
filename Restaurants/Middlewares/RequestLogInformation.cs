@@ -1,7 +1,6 @@
-﻿
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
-namespace Restaurants.Middlewares;
+namespace Restaurants.API.Middlewares;
 
 public class RequestLogInformation(ILogger<RequestLogInformation> logger) : IMiddleware
 {

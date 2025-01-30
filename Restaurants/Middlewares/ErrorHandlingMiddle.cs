@@ -1,7 +1,6 @@
-﻿
-using Restaurants.Domain.Exceptions;
+﻿using Restaurants.Domain.Exceptions;
 
-namespace Restaurants.Middlewares;
+namespace Restaurants.API.Middlewares;
 
 public class ErrorHandlingMiddle(ILogger<ErrorHandlingMiddle> logger) : IMiddleware
 {

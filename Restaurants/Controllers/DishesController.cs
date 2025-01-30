@@ -6,7 +6,7 @@ using Restaurants.Application.Dishes.Dtos;
 using Restaurants.Application.Dishes.Queries.GetDishByIdForRestaurant;
 using Restaurants.Application.Dishes.Queries.GetDishesForRestaurant;
 
-namespace Restaurants.Controllers;
+namespace Restaurants.API.Controllers;
 
 
 [Route("api/restaurant/{restaurantId}/dishes")]

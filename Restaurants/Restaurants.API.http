@@ -84,3 +84,19 @@ DELETE {{Restaurants_HostAddress}}/api/restaurant/1/dishes/5
 DELETE {{Restaurants_HostAddress}}/api/restaurant/3/dishes
 
 ###
+
+
+POST {{Restaurants_HostAddress}}/register
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "Password!1"
+}
+###
+
+POST {{Restaurants_HostAddress}}/login
+Content-Type: application/json
+{
+  "email": "testuser@test.com",
+  "password": "Password!12"
+}

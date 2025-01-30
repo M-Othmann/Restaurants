@@ -3,7 +3,9 @@ using Restaurants.Infrastructure.Seeders;
 using Restaurants.Application.Extensions;
 using Serilog;
 using Serilog.Events;
-using Restaurants.Middlewares;
+using Restaurants.Domain.Entities;
+using Microsoft.OpenApi.Models;
+using Restaurants.API.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,12 +13,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference {Type = ReferenceType.SecurityScheme, Id = "bearerAuth"}
+            },
+            []
+        }
+    });
+});
+builder.Services.AddEndpointsApiExplorer();
 
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
-
 
 
 builder.Host.UseSerilog((context, configuration) =>
@@ -54,6 +74,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+
+app.MapGroup("/api/identity").MapIdentityApi<User>();
 
 app.UseAuthorization();
 
