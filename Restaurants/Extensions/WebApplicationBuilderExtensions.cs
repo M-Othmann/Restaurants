@@ -8,6 +8,7 @@ public static class WebApplicationBuilderExtensions
 {
     public static void AddPresentaion(this WebApplicationBuilder builder)
     {
+        builder.Services.AddAuthentication();
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
