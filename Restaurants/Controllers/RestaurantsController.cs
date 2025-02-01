@@ -8,6 +8,7 @@ using Restaurants.Application.Restaurants.Command.UpdateRestaurant;
 using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantById;
+using Restaurants.Domain.Constants;
 
 namespace Restaurants.API.Controllers;
 
@@ -57,10 +58,10 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
 
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize(Roles = UserRoles.Owner)]
     public async Task<IActionResult> CreateRestaurant([FromBody] CreateRestaurantCommand command)
     {
+
         int id = await mediator.Send(command);
 
         return CreatedAtAction(nameof(GetRestaurant), new { id }, null);

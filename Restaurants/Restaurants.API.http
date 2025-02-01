@@ -1,102 +1,45 @@
-@Restaurants_HostAddress = https://localhost:7142
+@Restaurants.API_HostAddress = https://localhost:7142
+@token = CfDJ8MkoIiO835ZDuygHXVhjuGRjTokPT2_LXthRPZqp1oC9yow4atr9UfzAU5KEdcURkyXHJhv5SbR7GnEUUTrTbB5ZaVfOMi1f3A_yERbMrVaAOgWsq-t5VaEH9DROacOcYVU6UR76Siwn7OHqOhn9-ypcL0mhE5VdWEtBLYhbEqt-0_Y2SH5tb9cx9w7q-lKjGewIF67f9L5JAiQtXwldlGbhWAzhxrfcMLoJODD8VUXP959klS2ziwwilLE3X4JkQ69edaLQoUOI4p3Sb5C9ubUZdsBqInSCeFPB8z53Ck5JBDLhgdTs2nMViuve9ejj2k7JOkmnDtFGtSIcf-ZTadae8b9Nltvs9APkr76bPR7z4UE0imAOt4DeM8lDivNT52jJvkm_QBpUW_-b8joxzwVkZqHghrYoSQUpmbbUUMT9WyJysWL1M9k0iUvLfd11ooAvNdBXyHdqjAZFITzWjYswofUaMzS3huXluO2xRxs23IbCOdpqGG55OnuadFvlqVobuR04ymmNOeOu1MYYpE2r6Gcy9YKXyslYwhq9v3lKzgKkhmw06f9FoN3iCnT40XtDzVMgZ5On6_uafmdxWjBrLgLYPNwXu2nlGTeDpvNEQWK2IcOQSk234JFvJLqw_r_gGJbkjnwWItbskBNqxx16zEjR4iMf0HlZJAPpjsAQR7N_Qh4t7Got4c0D2W6SvQ
 
-
-
-
-GET {{Restaurants_HostAddress}}/api/restaurants
-
-###
-
-
-
-@id=3
-GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
+@restaurantId=0
+GET {{Restaurants.API_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
 
 ###
 
-
-
-POST {{Restaurants_HostAddress}}/api/restaurants
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "Name": "Test Tests",
-  "Description": "Cozy restaurant",
-  "Category": "Indian",
-  "HasDelivery": true,
-  "ContactEmail": "info@tests.com",
-  "ContactNumber": "555-1234",
-  "City":"New york",
-  "Street":"786 Main Avenue",
-  "PostalCode" : "10-101"
+  "name": "string",
+  "description": "string",
+  "category": "string",
+  "hasDelivery": true,
+  "contactEmail": "string",
+  "contactNumber": "string",
+  "city": "string",
+  "street": "string",
+  "postalCode": "string"
 }
 
 ###
 
 
-@id=5
-DELETE {{Restaurants_HostAddress}}/api/restaurants/{{id}}
-
-###
-
-PATCH {{Restaurants_HostAddress}}/api/restaurants/4
-Content-Type: application/json
-
-{
-  "Name": "Sample Patch",
-  "Description": "Sample restaurant",
-  "HasDelivery": true
-}
-
-###
-@id=3
-GET {{Restaurants_HostAddress}}/api/restaurants/{{id}}
-
-###
-
-@restaurantId=3
-POST {{Restaurants_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
-Content-Type: application/json
-
-{
-  "Name" : "Spaghettic Bolognese",
-  "Description" : "Classic Italian pasta dish with rich meat sauce",
-  "Price": 12.99,
-  "KiloCalories": 750
-}
-
-###
-
-@dishId=5
-GET {{Restaurants_HostAddress}}/api/restaurant/1/dishes/{{dishId}}
-
-###
-
-@restaurantId=3
-GET {{Restaurants_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
-
-###
-
-DELETE {{Restaurants_HostAddress}}/api/restaurant/1/dishes/5
-
-###
-
-DELETE {{Restaurants_HostAddress}}/api/restaurant/3/dishes
-
-###
 
 
-POST {{Restaurants_HostAddress}}/register
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 {
-  "email": "testuser@test.com",
-  "password": "Password!1"
+  "email":"user@test.com",
+  "password" : "Password1!"
 }
 ###
 
-POST {{Restaurants_HostAddress}}/login
+POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 {
-  "email": "testuser@test.com",
-  "password": "Password!12"
+  "email":"user@test.com",
+  "password" : "Password1!"
 }
+
