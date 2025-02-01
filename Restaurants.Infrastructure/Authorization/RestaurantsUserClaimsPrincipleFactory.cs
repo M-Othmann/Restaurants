@@ -15,11 +15,11 @@ public class RestaurantsUserClaimsPrincipleFactory(UserManager<User> userManager
 
         if (user.Nationality != null)
         {
-            id.AddClaim(new Claim("Nationality", user.Nationality));
+            id.AddClaim(new Claim(AppClaimTypes.Nationality, user.Nationality));
         }
         if (user.DateOfBirth != null)
         {
-            id.AddClaim(new Claim("DateOfBirth", user.DateOfBirth.Value.ToString("yyyy-MM-dd")));
+            id.AddClaim(new Claim(AppClaimTypes.DateOfBirth, user.DateOfBirth.Value.ToString("yyyy-MM-dd")));
         }
 
         return new ClaimsPrincipal(id);
