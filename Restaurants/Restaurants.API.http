@@ -1,5 +1,5 @@
 @Restaurants.API_HostAddress = https://localhost:7142
-@token = CfDJ8MkoIiO835ZDuygHXVhjuGSt2XPbfWyFZduI2Y7ASh_7YN9XOcEKfpQEaaxUmHRhV9IqbT6FSrlsD6xaqOW_5xdTUNAnNho-y2KeRGb_h37KRwbLoCJO1p8I-qyLRZ1EQcNTfj0lEcnOPHSCwxbfTmXRGustJfA0-OdMdS60YjRG22ws5k9NJ1pqwdkiWjdWU7FWSteIG7cDlkK3BhV_yOCPzKDR1VVh5lMhemcTYpdrAjJVVMKaEu7XCof5OE2EuFl3p5Nl9tJ0A9joe-5xB_aixiHvSY-YuHGstc0EvvOscgR-FQ5gpPiMe1cbbjvey9FdsvLWqd8HSSvkFsRgWnS3KV6CBu8FNSK7Wap5WaeRdlNT4SK3SxG-Nzuhgh_uZqJIyJ4-Uu7N1ZyMrTQaayhU4ZKw6eIiOLfi85kgfJWsqHG8xrxDjED2KvpHgvVxtZfHW5a0pBrkAscs2Hk1dbHUpqrzJ_5pdVGGvtcMv95GpEN5zvUbneXh2i4iR9HPu83Cyr-j_JwImh7lXUbIqExJZRO5m1RxOGPRkPlgJu8jupdb7x9jCQMG5QfUavPvSFn91s-KN0WK9bknTlBUgwIGBTkPXL21sr64O3CbIi4vkHDQXY57jUrvku0uSMnTg4caM2c2q3Io2AnZUsxrjtORZhecmId43-E_vubmW8AkLXSVyLz0rB3gdpQ-whPOMLnDv_MXjVfvXmfHPTkxvh_cHVwyP-DiLPjsj2aAH4Iqg_1e2NN-OpZJAAshc5_5CLJoiUvwxNawbeV0xI5RRe7Qjj8tFmerRQxhy_mSgVi0rhWYgRe65VTc4ZnRAZ34ewUrNkQr8sZqhtD6_em2TP34HjyRcRPXaUDc-28iz6W0qz76ZW3bH6AMDbh_YtHoTA
+@token = CfDJ8MkoIiO835ZDuygHXVhjuGRBHk_R2NifumQa3Ek_jWD-eUEE9xTfmD7dXTJkXq-1Mqigj4TvMuldAWAPofWBGbIkdHz9jMPO8VUVgQsa6iIW5ymsl8tV8ghD6dcFpfOCJ_er6SPwJI6vHpUNt3FejkTA7uWcV6hsKH0focmGmpsJcj0KwNp03V_4ZUwdcJwrxd_ffZ6NWDv_W8p0CqGwvkxKZctNWRWgjX2UZzlq-RG1IW-aQ09hRoj5r5MTuFEDDAqwS2XrJQRooLqnCybymjSkY3GJmo-YB8uYhcsNyhuxUprgtSUAWjOGe5XyyEoYBTpbyRyNdNXwGEhhgiD4oCe69Q3dLOAQnsGPYJ2d6gC5PBHDLTesdFD1bK61tMYa9f4-AC-xEg9KYZXnjDQlMRhskz-X6iHQyQmAWYUe3h7iKyAgPvZPE1oFDmqSZCbASc6lOVC1-6KFSqIk7Z8ADL_L-nvzeFdPcEPOffxjFNxFo6R_QbOqaZoUd1F7HLbbY7kAeJh_oQpB3WsmWod2l1mC84ofXxcGvUaEdkR-ICYJUESadXCGh0uPo-zxfEl-_T1wx12r6uc5laX4YOf7b38hNwYcfvw4UMLVOHGzBj1jIj1mqrGlhv_2A4gPPVOpnA59GAIHpXYRygkgXexFFUcqpNxm79tm1V048GNJwG17BKIIxNRe2BvF3ddhv9tTGNxrAWYVuxXHarfBi1E0KwcIX8TehweSVtR30QUj3Z5k_RA0pDqCj01dlBL5k8eZGtf6mwFUfInvEx0Z8KV2B5s-J8Yp_Rqrg6aVYa-eus1vQZJMqAx-G3Vy3x4KlSvSqwbWVQjXZ0SUqU0ROCuIrl-QO80pSNHEW5nCb2_6b0IgaPkua2q9LQHojUzirSUj1A
 
 @restaurantId=0
 GET {{Restaurants.API_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
@@ -11,15 +11,15 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "string",
+  "name": "owner restaurant",
   "description": "string",
-  "category": "string",
+  "category": "Indian",
   "hasDelivery": true,
-  "contactEmail": "string",
-  "contactNumber": "string",
+  "contactEmail": "info@test.com",
+  "contactNumber": "555-1234",
   "city": "string",
   "street": "string",
-  "postalCode": "string"
+  "postalCode": "10-010"
 }
 
 ###
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 
 
-@id=1
+@id=5
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 Authorization: Bearer {{token}}
 
@@ -55,5 +55,9 @@ Authorization: Bearer {{token}}
 
 GET {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
 Authorization: Bearer {{token}}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
