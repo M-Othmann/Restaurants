@@ -1,5 +1,5 @@
 @Restaurants.API_HostAddress = https://localhost:7142
-@token = CfDJ8MkoIiO835ZDuygHXVhjuGRBHk_R2NifumQa3Ek_jWD-eUEE9xTfmD7dXTJkXq-1Mqigj4TvMuldAWAPofWBGbIkdHz9jMPO8VUVgQsa6iIW5ymsl8tV8ghD6dcFpfOCJ_er6SPwJI6vHpUNt3FejkTA7uWcV6hsKH0focmGmpsJcj0KwNp03V_4ZUwdcJwrxd_ffZ6NWDv_W8p0CqGwvkxKZctNWRWgjX2UZzlq-RG1IW-aQ09hRoj5r5MTuFEDDAqwS2XrJQRooLqnCybymjSkY3GJmo-YB8uYhcsNyhuxUprgtSUAWjOGe5XyyEoYBTpbyRyNdNXwGEhhgiD4oCe69Q3dLOAQnsGPYJ2d6gC5PBHDLTesdFD1bK61tMYa9f4-AC-xEg9KYZXnjDQlMRhskz-X6iHQyQmAWYUe3h7iKyAgPvZPE1oFDmqSZCbASc6lOVC1-6KFSqIk7Z8ADL_L-nvzeFdPcEPOffxjFNxFo6R_QbOqaZoUd1F7HLbbY7kAeJh_oQpB3WsmWod2l1mC84ofXxcGvUaEdkR-ICYJUESadXCGh0uPo-zxfEl-_T1wx12r6uc5laX4YOf7b38hNwYcfvw4UMLVOHGzBj1jIj1mqrGlhv_2A4gPPVOpnA59GAIHpXYRygkgXexFFUcqpNxm79tm1V048GNJwG17BKIIxNRe2BvF3ddhv9tTGNxrAWYVuxXHarfBi1E0KwcIX8TehweSVtR30QUj3Z5k_RA0pDqCj01dlBL5k8eZGtf6mwFUfInvEx0Z8KV2B5s-J8Yp_Rqrg6aVYa-eus1vQZJMqAx-G3Vy3x4KlSvSqwbWVQjXZ0SUqU0ROCuIrl-QO80pSNHEW5nCb2_6b0IgaPkua2q9LQHojUzirSUj1A
+@token = CfDJ8MkoIiO835ZDuygHXVhjuGSdbbcbFX41Nw_TMh_qV5Wq-WSyzlh9unrQRxqg5lM-R_Yi7yTBPtrgeDAtGEw2KwXUMX4-X0UOK-ptPnf_TX_mSQoyQJKk7Wn8m18dLQtiPRgWnRGR8eYyJPfZHBWLuR1MKmHkLxV1yRxfng-W7DVACwUtWNdkD1lYAcodwTCbsJr3ix-RODw3gywyLPpu6_gRaXbttkHodNCeR6kknedWUPjkU-A_pH5kZhWiQcHAPF1SKG7VMrRYb5awA_3T0yKXP2cpyrfMWK-mFGFmaOAYqMq_Uh-sZUH9YzKFrkCD-g9Y4fXxJTHDFCL3RZxdz4hP-GdRoF6E4pDxYOsPwj2OH2ls14lNo8snamHwkuYSuRtX_EBq5IGGdLQq_KiQi4tnktB-nsRpwbtm4aZy4AIRNACacSdQXio6g5SLx4vD4nVqDhz51wIVs6BB8d8QqVZIo7JLNTFHe40s21s1G0Bkv6xneK8OKoNgvJgI5CT4g-7XBK_3IdxFAGdGFPw0XfjHxRkr-TEN2eON6_9Ra0nLmWmOJydxuMYd1x1pwXTWA2pY2Jqjkvfs6kYd508Y9TkApCz1Hsilem63-QCq3pqDjFi_ll0H3PRBWvAGurESFEUxbE6m4Cv1CzPvX8BtGsdbBkNKdOl7ZzEOcEQ_UeJbb3-djDbfhkcWheUYXtLhwVHOAzW-SwQv_kWiCpPUfE9EIEE_hyo7gYvRygyy8YxYMjDY1Y_fCbM2KWnr3iKg7C8TKTb4UtZ62oMRls4gusISProxbyV5LEv_K8-w04p7JjV0UCqRez4Sjf73GxTauxd4_9B4MjyPetb6qkMWAFtONB4xlekDEnV6TXiJHxQHgxdnq7CXOOO8q7d7lDdpGQ
 
 @restaurantId=0
 GET {{Restaurants.API_HostAddress}}/api/restaurant/{{restaurantId}}/dishes
@@ -58,6 +58,32 @@ Authorization: Bearer {{token}}
 
 ###
 
+
+
 GET {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/6
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/4
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+   "name": "updated restaurant",
+  "description": "string",
+  "category": "Indian",
+  "hasDelivery": true,
+  "contactEmail": "info@test.com",
+  "contactNumber": "555-1234",
+  "city": "string",
+  "street": "string",
+  "postalCode": "10-010"
+}
 
 ###
