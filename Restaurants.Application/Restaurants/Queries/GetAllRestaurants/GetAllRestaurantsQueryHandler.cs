@@ -15,10 +15,9 @@ public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler
     {
         logger.LogInformation("Getting all restaurants");
 
-        var searchPhraseLower = request.SearchPhrase.ToLower();
-        var resResult = (await restaurantsRepository.GetAllAsync())
-                            .Where(r => r.Name.ToLower().Contains(searchPhraseLower)
-                                || r.Description.ToLower().Contains(searchPhraseLower));
+
+        var resResult = (await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase));
+
 
         //var restaurantDto = resResult.Select(RestaurantDto.FromEntity);
         var restaurantDto = mapper.Map<IEnumerable<RestaurantDto>>(resResult);

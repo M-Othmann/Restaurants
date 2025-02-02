@@ -30,6 +30,19 @@ internal class RestaurantRepository(RestaurantsDbContext _db)
         return restaurants;
     }
 
+    public async Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase)
+    {
+        var searchPhraseLower = searchPhrase?.ToLower();
+
+        var restaurants = await _db
+            .Restaurants
+             .Where(r => searchPhraseLower == null || (r.Name.ToLower().Contains(searchPhraseLower)
+                                || r.Description.ToLower().Contains(searchPhraseLower)))
+             .ToListAsync();
+
+        return restaurants;
+    }
+
     public async Task<Restaurant?> GetRestaurant(int id)
     {
         var restaurant = await _db.Restaurants
