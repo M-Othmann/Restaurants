@@ -31,6 +31,7 @@ public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContex
         var dobString = user.FindFirst(c => c.Type == "DateOfBirth")?.Value;
         var dob = dobString == null ? (DateOnly?)null : DateOnly.ParseExact(dobString, "yyyy-MM-dd");
 
+
         return new CurrentUser(userId, email, roles, nationality, dob);
 
     }
