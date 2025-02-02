@@ -18,9 +18,11 @@ public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler
         logger.LogInformation("Getting all restaurants");
 
 
-        var (resResult, totalCount) = (await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase,
+        var (resResult, totalCount) = await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase,
             request.PageSize,
-            request.PageNumber));
+            request.PageNumber,
+            request.SortBy,
+            request.SortDirection);
 
 
         //var restaurantDto = resResult.Select(RestaurantDto.FromEntity);
