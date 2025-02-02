@@ -12,7 +12,7 @@ public interface IRestaurantsRepository
 
     Task Delete(Restaurant entity);
 
-    Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase);
+    Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, int pageSize, int pageNumber);
 
     Task SaveChanges();
 }
