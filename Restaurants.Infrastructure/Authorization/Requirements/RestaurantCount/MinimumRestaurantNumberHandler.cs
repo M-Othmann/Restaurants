@@ -5,7 +5,7 @@ using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Infrastructure.Authorization.Requirements.RestaurantCount;
 
-public class MinimumRestaurantNumberHandler(ILogger<MinimumRestaurantNumberHandler> logger,
+internal class MinimumRestaurantNumberHandler(
     IUserContext userContext,
     IRestaurantsRepository restaurantsRepository) : AuthorizationHandler<MinimumRestaurantNumber>
 {
@@ -16,14 +16,14 @@ public class MinimumRestaurantNumberHandler(ILogger<MinimumRestaurantNumberHandl
 
         var userRestaurantsCreated = restaurants.Count(r => r.OwnerId == user.Id);
 
-        logger.LogInformation("User: {Email} - Handling MinimumRestaurantRequirement",
-           user.Email);
+        /* logger.LogInformation("User: {Email} - Handling MinimumRestaurantRequirement",
+            user.Email);*/
 
 
 
         if (userRestaurantsCreated >= requirement.Number)
         {
-            logger.LogInformation("Authorization succeeded");
+            /*logger.LogInformation("Authorization succeeded");*/
             context.Succeed(requirement);
         }
         else
