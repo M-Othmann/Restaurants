@@ -71,7 +71,7 @@ public class RestaurantsControllerTests : IClassFixture<WebApplicationFactory<Pr
         var client = _factory.CreateClient();
 
         //act
-        var response = await client.GetAsync($"/api/restaurant/{id}");
+        var response = await client.GetAsync($"/api/restaurants/{id}");
         var restaurantDto = await response.Content.ReadFromJsonAsync<RestaurantDto>();
 
 
