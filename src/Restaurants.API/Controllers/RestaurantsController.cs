@@ -31,7 +31,7 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Policy = PolicyNames.HasNationality)]
+    /*[Authorize(Policy = PolicyNames.HasNationality)]*/
     public async Task<ActionResult<RestaurantDto?>> GetRestaurant([FromRoute] int id)
     {
         var result = await mediator.Send(new GetRestaurantByIdQuery(id));
