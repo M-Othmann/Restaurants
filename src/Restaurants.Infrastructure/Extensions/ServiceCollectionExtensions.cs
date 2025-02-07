@@ -12,9 +12,11 @@ using Restaurants.Infrastructure.Authorization;
 using Restaurants.Infrastructure.Authorization.Requirements;
 using Restaurants.Infrastructure.Authorization.Requirements.RestaurantCount;
 using Restaurants.Infrastructure.Authorization.Services;
+using Restaurants.Infrastructure.Configuration;
 using Restaurants.Infrastructure.Persistance;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
+using Restaurants.Infrastructure.Storage;
 
 namespace Restaurants.Infrastructure.Extensions;
 
@@ -49,5 +51,7 @@ public static class ServiceCollectionExtensions
         service.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
         service.AddScoped<IAuthorizationHandler, MinimumRestaurantNumberHandler>();
 
+        service.Configure<BlobStorageSettings>(configuration.GetSection("BlobStorage"));
+        service.AddScoped<IBlobStorageService, BlobStorageSerivce>();
     }
 }
